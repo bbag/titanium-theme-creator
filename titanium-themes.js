@@ -35,18 +35,27 @@ Vue.component('color-input-container', {
                     <input type="radio" value="primary"
                         v-model="currentType"
                         v-bind:name="'radio_' + propertyname">
+                    <svg class="radio-button-handle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <polyline points="4 12 9 17 20 6"/>
+                    </svg>
                     Use primary
                 </label>
                 <label>
                     <input type="radio" value="secondary"
                         v-model="currentType"
                         v-bind:name="'radio_' + propertyname">
+                    <svg class="radio-button-handle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <polyline points="4 12 9 17 20 6"/>
+                    </svg>
                     Use secondary
                 </label>
                 <label>
                     <input type="radio" value="custom"
                         v-model="currentType"
                         v-bind:name="'radio_' + propertyname" checked>
+                    <svg class="radio-button-handle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <polyline points="4 12 9 17 20 6"/>
+                    </svg>
                     Use custom
                 </label>
                 <button class="button-options-close" v-on:click="hideOptions(propertyname)" title="More options">
