@@ -116,20 +116,35 @@
                             </header>
                             <div class="app-main">
                                 <div v-bind:style="{ background: colors['Elements']['background']['hex'][colorMode], color: colors['Elements']['background_active']['hex'][colorMode] }" v-bind:class="{ 'app-home-hidden': subpageIsActive }" class="app-home">
-                                    <h1 class="section-header">Section Header</h1>
+                                    <h1 class="section-header">App Elements</h1>
                                     <div v-bind:style="{ background: colors['Elements']['surface']['hex'][colorMode], color: colors['Elements']['surface_active']['hex'][colorMode] }" class="surface">
-                                        <h2 class="surface-header">Surface Header</h2>
-                                        <p>Surface body text lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc lorem, ultricies vitae lorem sed.</p>
+                                        <h2 class="surface-header">General Elements</h2>
+                                        <p>Preview your background, surface, and text colors.</p>
                                         <div class="button-container">
-                                            <button v-bind:style="{ background: colors['Elements']['button']['hex'][colorMode], 'border-color': colors['Elements']['button_border']['hex'][colorMode], color: colors['Elements']['button_active']['hex'][colorMode] }" v-on:click="setActiveSubpage('test-page')" class="button">
-                                                Button
-                                            </button>
-                                            <button v-bind:style="{ background: colors['Elements']['button2']['hex'][colorMode], 'border-color': colors['Elements']['button2_border']['hex'][colorMode], color: colors['Elements']['button2_active']['hex'][colorMode] }" class="button button-secondary">
-                                                Button2
+                                            <button v-on:click="setActiveSubpage('general-page')" class="button" v-bind:style="{ background: colors['Elements']['button']['hex'][colorMode], 'border-color': colors['Elements']['button_border']['hex'][colorMode], color: colors['Elements']['button_active']['hex'][colorMode] }">
+                                                See General
                                             </button>
                                         </div>
                                     </div>
-                                    <h1 class="section-header">Section Header</h1>
+                                    <div v-bind:style="{ background: colors['Elements']['surface']['hex'][colorMode], color: colors['Elements']['surface_active']['hex'][colorMode] }" class="surface">
+                                        <h2 class="surface-header">Inputs</h2>
+                                        <p>Preview your app's styles for buttons, text inputs, checkboxes, and radio buttons.</p>
+                                        <div class="button-container">
+                                            <button v-on:click="setActiveSubpage('inputs-page')" class="button" v-bind:style="{ background: colors['Elements']['button']['hex'][colorMode], 'border-color': colors['Elements']['button_border']['hex'][colorMode], color: colors['Elements']['button_active']['hex'][colorMode] }">
+                                                See All Inputs
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div v-bind:style="{ background: colors['Elements']['surface']['hex'][colorMode], color: colors['Elements']['surface_active']['hex'][colorMode] }" class="surface">
+                                        <h2 class="surface-header">Calendar</h2>
+                                        <p>Preview your app's calendar widget.</p>
+                                        <div class="button-container">
+                                            <button v-on:click="setActiveSubpage('calendar-page')" class="button" v-bind:style="{ background: colors['Elements']['button']['hex'][colorMode], 'border-color': colors['Elements']['button_border']['hex'][colorMode], color: colors['Elements']['button_active']['hex'][colorMode] }">
+                                                See Calendar
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <h1 class="section-header">Miscellaneous</h1>
                                     <div v-bind:style="{ background: colors['Elements']['surface']['hex'][colorMode], color: colors['Elements']['surface_active']['hex'][colorMode] }" class="surface">
                                         <p v-bind:style="{ color: colors['Miscellaneous']['danger']['hex'][colorMode] }">
                                             <svg viewBox="0 0 24 24" width="24" height="24" class="icon">
@@ -167,8 +182,55 @@
                                 </div>
 
                                 <!-- Subpages -->
-                                <div class="sub-page" data-sub-page="test-page" data-sub-page-title="Test Page" v-bind:style="{ background: colors['Elements']['background']['hex'][colorMode] }">
-                                    Blah
+                                <div class="sub-page" data-sub-page="general-page" data-sub-page-title="General Styles" v-bind:style="{ background: colors['Elements']['background']['hex'][colorMode], color: colors['Elements']['background_active']['hex'][colorMode] }">
+                                    <h1 class="section-header">Section Header</h1>
+                                    <div v-bind:style="{ background: colors['Elements']['surface']['hex'][colorMode], color: colors['Elements']['surface_active']['hex'][colorMode] }" class="surface">
+                                        <h2 class="surface-header">Background</h2>
+                                        <p>The <code>background</code> color is the color behind these individual surface/section elements.</p>
+                                        <p>Changing <code>background_active</code> will change the color of text/icon elements directly on top of the background (such as the Section Header right above this).</p>
+                                    </div>
+                                    <div v-bind:style="{ background: colors['Elements']['surface']['hex'][colorMode], color: colors['Elements']['surface_active']['hex'][colorMode] }" class="surface">
+                                        <h2 class="surface-header">Active &amp; Inactive</h2>
+                                        <p>The <code>*_active</code> and <code>*_inactive</code> styles typically refer to colors of inline elements (e.g. text, icons) that will be on top of <code>*</code>.</p>
+                                        <p>For example, this text is on a <code>surface</code> element&mdash;try changing the <code>surface_active</code> property to see the color of this text change.</p>
+                                    </div>
+                                </div>
+                                <div class="sub-page" data-sub-page="inputs-page" data-sub-page-title="Input Styles" v-bind:style="{ background: colors['Elements']['background']['hex'][colorMode], color: colors['Elements']['background_active']['hex'][colorMode] }">
+                                    <h1 class="section-header">Section Header</h1>
+                                    <div v-bind:style="{ background: colors['Elements']['surface']['hex'][colorMode], color: colors['Elements']['surface_active']['hex'][colorMode] }" class="surface">
+                                        <h2 class="surface-header">Surface Header</h2>
+                                        <p>Surface body text lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc lorem, ultricies vitae lorem sed.</p>
+                                        <div class="button-container">
+                                            <button v-bind:style="{ background: colors['Elements']['button']['hex'][colorMode], 'border-color': colors['Elements']['button_border']['hex'][colorMode], color: colors['Elements']['button_active']['hex'][colorMode] }" class="button button-unclickable">
+                                                Button
+                                            </button>
+                                            <button v-bind:style="{ background: colors['Elements']['button2']['hex'][colorMode], 'border-color': colors['Elements']['button2_border']['hex'][colorMode], color: colors['Elements']['button2_active']['hex'][colorMode] }" class="button button-secondary button-unclickable">
+                                                Button2
+                                            </button>
+                                        </div>
+                                        <div class="button-container">
+                                            <button v-bind:style="{ background: colors['Elements']['button_disabled']['hex'][colorMode], 'border-color': colors['Elements']['button_disabled']['hex'][colorMode], color: colors['Elements']['button_active']['hex'][colorMode] }" class="button button-unclickable">
+                                                Button Disabled
+                                            </button>
+                                            <button v-bind:style="{ background: colors['Elements']['button2']['hex'][colorMode], 'border-color': colors['Elements']['button2_disabled']['hex'][colorMode], color: colors['Elements']['button2_disabled']['hex'][colorMode] }" class="button button-secondary button-unclickable">
+                                                Button2 Disabled
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sub-page" data-sub-page="calendar-page" data-sub-page-title="Calendar Styles" v-bind:style="{ background: colors['Elements']['background']['hex'][colorMode], color: colors['Elements']['background_active']['hex'][colorMode] }">
+                                    <div v-bind:style="{ background: colors['Elements']['surface']['hex'][colorMode], color: colors['Elements']['surface_active']['hex'][colorMode] }" class="surface">
+                                        <h2 class="surface-header">Calendar</h2>
+                                        <p>This will be filled in soon... still a work-in-progress!</p>
+                                        <!-- <div class="button-container">
+                                            <button v-bind:style="{ background: colors['Elements']['button']['hex'][colorMode], 'border-color': colors['Elements']['button_border']['hex'][colorMode], color: colors['Elements']['button_active']['hex'][colorMode] }" class="button button-unclickable">
+                                                Button
+                                            </button>
+                                            <button v-bind:style="{ background: colors['Elements']['button2']['hex'][colorMode], 'border-color': colors['Elements']['button2_border']['hex'][colorMode], color: colors['Elements']['button2_active']['hex'][colorMode] }" class="button button-secondary button-unclickable">
+                                                Button2
+                                            </button>
+                                        </div> -->
+                                    </div>
                                 </div>
                             </div>
                     

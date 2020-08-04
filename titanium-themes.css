@@ -139,7 +139,7 @@ pre {
 
 code {
   background: rgba(0, 0, 0, 0.1);
-  border-radius: 0.125em;
+  border-radius: 0.1875em;
   display: inline-block;
   padding: 0.125em 0.375em;
 }
@@ -371,6 +371,16 @@ hr {
   flex: 1 1 auto;
   font-size: 0.75rem;
   overflow-y: hidden;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }
 
 /*---------------------------------------------------------*/
@@ -719,8 +729,17 @@ hr {
   -moz-justify-content: space-between;
   justify-content: space-between;
   margin: 0.5em 0;
+  opacity: 0;
   position: absolute;
   right: 0;
+  -moz-transform: scale(0.9);
+  -o-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+  transform-origin: bottom right;
+  -webkit-transition: all 200ms cubic-bezier(0.2, 0, 0.2, 1);
+  transition: all 200ms cubic-bezier(0.2, 0, 0.2, 1);
   visibility: hidden;
 }
 
@@ -742,6 +761,12 @@ hr {
 }
 
 .options-shown + .color-input-options-menu {
+  opacity: 1;
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  transform: scale(1);
   visibility: visible;
 }
 
@@ -769,8 +794,12 @@ hr {
   z-index: 1;
 }
 
-.color-input-options-menu label:hover {
+.color-input-options-menu label:hover, .color-input-options-menu label:focus, .color-input-options-menu label:focus-within {
   background: #E8F1FB;
+}
+
+.color-input-options-menu label:hover {
+  color: #D22630;
 }
 
 .color-input-options-menu label:first-of-type {
@@ -781,8 +810,10 @@ hr {
   border-radius: 0 0 0.25em 0.25em;
 }
 
-.color-input-options-menu input[type="radio"] {
-  display: none;
+.color-input-options-menu label code {
+  background: #FFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: color 150ms ease;
 }
 
 .button-options-expand {
@@ -820,7 +851,7 @@ hr {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  height: 1.125em;
+  height: 1.25em;
   -webkit-box-pack: center;
   -moz-box-pack: center;
   -ms-flex-pack: center;
@@ -833,7 +864,7 @@ hr {
   right: -0.5em;
   top: -0.5em;
   transition: background-color 150ms ease, color 150ms ease;
-  width: 1.125em;
+  width: 1.25em;
   z-index: 2;
 }
 
@@ -1074,8 +1105,19 @@ input:checked + .radio-button-handle {
 .preview {
   border-radius: 2.5em;
   box-shadow: 0 0.375em 0.375em rgba(255, 255, 255, 0.1);
+  display: -moz-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   height: 46em;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-direction: normal;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: auto;
@@ -1094,7 +1136,17 @@ input:checked + .radio-button-handle {
   outline: none;
 }
 
+.preview code {
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 0.875em;
+}
+
 .app-header {
+  -webkit-box-flex: 0 0 auto;
+  -moz-box-flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   padding: 3em 0 0.625em;
   position: relative;
   z-index: 1;
@@ -1142,7 +1194,19 @@ input:checked + .radio-button-handle {
 
 .app-main {
   flex: 1 1 auto;
+  overflow-x: hidden;
   position: relative;
+}
+
+.app-home,
+.sub-page {
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.app-home::-webkit-scrollbar,
+.sub-page::-webkit-scrollbar {
+  width: none;
 }
 
 .app-home {
@@ -1180,8 +1244,6 @@ input:checked + .radio-button-handle {
 }
 
 p {
-  align-items: center;
-  display: flex;
   line-height: 1.4;
   margin-bottom: 0;
 }
@@ -1222,8 +1284,21 @@ p:not(:last-child) {
 }
 
 .nav-bar {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
   align-items: center;
+  display: -moz-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+  -webkit-box-flex: 0 0 auto;
+  -moz-box-flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   justify-content: space-around;
   padding: 0.625em 1em;
   position: relative;
@@ -1329,6 +1404,10 @@ p:not(:last-child) {
   color: red;
 }
 
+.button.button-unclickable {
+  cursor: auto;
+}
+
 .button-container {
   -webkit-box-align: stretch;
   -ms-flex-align: stretch;
@@ -1346,6 +1425,10 @@ p:not(:last-child) {
   -webkit-justify-content: space-between;
   -moz-justify-content: space-between;
   justify-content: space-between;
+}
+
+.button-container:not(:first-child) {
+  margin-top: 1em;
 }
 
 .button-container .button {
